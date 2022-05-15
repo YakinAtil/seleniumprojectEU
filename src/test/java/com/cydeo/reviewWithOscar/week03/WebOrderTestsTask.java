@@ -62,7 +62,7 @@ public class WebOrderTestsTask {
 
         for (WebElement each : checkBox) {
 
-            Assert.assertTrue(each.isSelected());
+            Assert.assertTrue(each.isSelected(),"Check box is UNSELECTED");
 
             }
 
@@ -72,8 +72,16 @@ public class WebOrderTestsTask {
 
 
     }
-   // @Test
-    //public void unCheckAll(){}
+    @Test
+    public void unCheckAll(){
+driver.findElement(By.linkText("Uncheck All")).click();
+        List<WebElement> checkBox = driver.findElements(By.xpath("//input[@type=\"checkbox\"]"));
+
+        for (WebElement eachBox : checkBox) {
+
+            Assert.assertFalse(eachBox.isSelected(),"Checkbox is SELECTED");
+
+        }}
 
 
 
