@@ -72,9 +72,10 @@ public class WebOrderTestsTask {
 
 
     }
-    @Test
+
     public void unCheckAll(){
-driver.findElement(By.linkText("Uncheck All")).click();
+
+        driver.findElement(By.linkText("Uncheck All")).click();
         List<WebElement> checkBox = driver.findElements(By.xpath("//input[@type=\"checkbox\"]"));
 
         for (WebElement eachBox : checkBox) {
@@ -90,6 +91,29 @@ driver.findElement(By.linkText("Uncheck All")).click();
     public  void closeTest(){
 
         driver.close();
+
+    }
+    @Test
+
+    public void deletePersonTest(){
+        System.out.println("Implementing steps 3 and 4 for Test case 1");
+        String name = "Bob Feather";
+//        Locate the checkBox using the person's Name: Bob Feather
+//        find with name(child)--> go to parent (whole row) --> down to td of checkbox */
+        //td[.='Bob Feather']/../td[1]/input
+        //td[.='Bob Feather']/preceding-sibling::*/input
+        String locatorOfCheckBoxWithName = "//td[.='"+name+"']/../td[1]/input";
+        WebElement checkBox = driver.findElement(By.xpath(locatorOfCheckBoxWithName));
+        checkBox.click();
+        driver.findElement(By.id("ctl00_MainContent_btnDelete")).click();
+
+        List <WebElement> namesElement = driver.findElements(By.xpath("//tr//td[2]"));
+
+        for (WebElement element : namesElement) {
+
+            Assert.assertFalse(element.getText().contains(name));
+
+        }
 
     }
 
