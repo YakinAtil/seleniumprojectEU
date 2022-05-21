@@ -3,7 +3,6 @@ package com.cydeo.tests.day06_alerts_iframes_windows;
 import com.cydeo.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -31,8 +30,11 @@ public class T04_Iframe {
         //2. Create new test and make set ups
         //3. Go to: https://practice.cydeo.com/iframe
         //4. Assert: “Your content goes here.” Text is displayed.
-        WebElement iframe = driver.findElement(By.xpath("//iframe[@id=\"mce_0_ifr\"]"));
-        driver.switchTo().frame(iframe);
+       // WebElement iframe = driver.findElement(By.xpath("//iframe[@id=\"mce_0_ifr\"]"));
+        //driver.switchTo().frame(iframe);
+        //2nd option
+        //driver.switchTo().frame(0);
+        driver.switchTo().frame("mce_0_ifr");
         Assert.assertTrue(driver.findElement(By.xpath("//body[@id=\"tinymce\"]/p")).isDisplayed());
 
     //5. Assert: “An iFrame containing the TinyMCE WYSIWYG Editor”
