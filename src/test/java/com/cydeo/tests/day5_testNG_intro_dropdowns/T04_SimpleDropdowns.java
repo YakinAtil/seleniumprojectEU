@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -14,12 +15,10 @@ public class T04_SimpleDropdowns {
     WebDriver driver;
 
 
-    @Test
-
     @BeforeMethod
 
-    public void setUpMethod (){
-       driver = WebDriverFactory.getDriver("chrome");
+    public void setUpMethod() {
+        driver = WebDriverFactory.getDriver("chrome");
         // Maximize page
         driver.manage().window().maximize();
         // Implicit wait
@@ -28,7 +27,8 @@ public class T04_SimpleDropdowns {
 
     }
 
-    public void simpleDropdownTest(){
+    @Test
+    public void simpleDropdownTest() {
 //TC#4: Verifying “Simple dropdown” and “State selection” dropdown
         //default values
         //1. Open Chrome browser
@@ -38,25 +38,28 @@ public class T04_SimpleDropdowns {
         Select dropDownDate = new Select(driver.findElement(By.xpath("//select[@id='dropdown']")));
         String expected = "Please select an option";
         String actual = dropDownDate.getFirstSelectedOption().getText();
-        Assert.assertEquals(actual,expected);
+        Assert.assertEquals(actual, expected);
         //4. Verify “State selection” default selected value is correct
         //Expected: “Select a State”
+    }
 
-
+    @Test
+    public void simpleDropdownTest2() {
 
         Select simpleStateDropdown = new Select(driver.findElement(By.xpath("//select[@id='state']")));
 
         String expectedState = "Select a State";
         String actualState = simpleStateDropdown.getFirstSelectedOption().getText();
 
-        Assert.assertEquals(actual,expected);
+        Assert.assertEquals(actualState, expectedState);
 
 
     }
-//    @AfterMethod
-//
-//    public void tearDown(){
-//        driver.close();
-    //}
+
+    @AfterMethod
+
+    public void tearDown() {
+        driver.close();
+    }
 
 }
