@@ -1,18 +1,18 @@
 package com.cydeo.tests.day07_webtales_utilities_javafaker;
 
 import com.cydeo.utilities.BrowserUtils;
+import com.cydeo.utilities.CRM_Utilities;
 import com.cydeo.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
 public class T03_CRM_Login {
-    WebDriver driver ;
+    WebDriver driver;
 
     @BeforeMethod
 
@@ -22,15 +22,14 @@ public class T03_CRM_Login {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("http://login1.nextbasecrm.com/");
     }
+    @Test(priority =1)
 
-    @Test
-
-    public  void crm_login_test(){
+    public void crm_login_test() {
         //TC #3: Login scenario
         //1. Create new test and make set ups
         //2. Go to : http://login1.nextbasecrm.com/
         //3. Enter valid username
-        WebElement userName =driver.findElement(By.xpath("//input[@class=\"login-inp\"][1]"));
+        WebElement userName = driver.findElement(By.xpath("//input[@class=\"login-inp\"][1]"));
         userName.sendKeys("helpdesk2@cybertekschool.com");
         //4. Enter valid password
         WebElement password = driver.findElement(By.xpath("//input[@type=\"password\"]"));
@@ -38,14 +37,50 @@ public class T03_CRM_Login {
         //5. Click to `Log In` button
         driver.findElement(By.xpath("//input[@class=\"login-btn\"]")).click();
         //6. Verify title is as expected:
-        BrowserUtils.verifyTitle(driver,"Portal");
+        BrowserUtils.verifyTitle(driver, "Portal");
         //Expected: Portal
         //USERNAME PASSWORD
         //helpdesk1@cybertekschool.com UserUser
         //Helpdesk2@cybertekschool.com UserUse
     }
-    @AfterMethod
-    public  void testEnd(){
-        driver.close();
+
+
+
+@Test
+    public void crm_login_test_2() {
+        //TC #3: Login scenario
+        //1. Create new test and make set ups
+        //2. Go to : http://login1.nextbasecrm.com/
+        //Calling my utility
+
+        CRM_Utilities.crm_login(driver);
+
+
+        //Expected: Portal
+        //USERNAME PASSWORD
+        //helpdesk1@cybertekschool.com UserUser
+        //Helpdesk2@cybertekschool.com UserUse
+    CRM_Utilities.crm_login(driver);
+    //6. Verify title is as expected:
+    BrowserUtils.verifyTitle(driver, "Portal");
     }
+    @Test
+    public void crm_login_test_3() {
+        //TC #3: Login scenario
+        //1. Create new test and make set ups
+        //2. Go to : http://login1.nextbasecrm.com/
+        //Calling my utility
+
+
+
+        //Expected: Portal
+        //USERNAME PASSWORD
+        //helpdesk1@cybertekschool.com UserUser
+        //Helpdesk2@cybertekschool.com UserUse
+        CRM_Utilities.crm_login(driver,"helpdesk2@cybertekschool.com","UserUser");
+
+        //6. Verify title is as expected:
+        BrowserUtils.verifyTitle(driver, "Portal");
+    }
+
 }
