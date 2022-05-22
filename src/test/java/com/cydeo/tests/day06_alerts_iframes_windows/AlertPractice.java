@@ -50,4 +50,5 @@ public class AlertPractice {
     public void endMethod() {
         driver.close();
     }
+
 }
