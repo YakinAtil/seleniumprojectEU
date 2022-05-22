@@ -1,14 +1,13 @@
 package com.cydeo.tests.day07_webtales_utilities_javafaker;
 
+import com.cydeo.utilities.BrowserUtils;
 import com.cydeo.utilities.WebDriverFactory;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 public class T01_WindowHandling {
@@ -40,21 +39,7 @@ public class T01_WindowHandling {
         //4. Create a logic to switch to the tab where Etsy.com is open
 
 
-        Set<String> allWindows = driver.getWindowHandles();
-
-        for (String each : allWindows){
-            driver.switchTo().window(each);
-            if (driver.getCurrentUrl().contains("etsy.com")){
-                break;
-            }
-        }
-
-
-        //5. Assert: Title contains “Etsy”
-        System.out.println("Title is "+driver.getTitle());
-
-        Assert.assertTrue(driver.getTitle().contains("Etsy"));
-
+        BrowserUtils.switchWindowAndVerify(driver,"etsy.com","Etsy");
 
 
     }
