@@ -1,6 +1,7 @@
 package com.cydeo.tests.day08_properties_config_reader;
 
 import com.cydeo.utilities.WebDriverFactory;
+import com.cydeo.utilities.WebTableUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -52,10 +53,24 @@ public class T1_WebTableOrder {
         Assert.assertTrue(actualDate.equals(expectedDate));
 
     }
-    @AfterMethod
+    @Test
+
+    public void order_name_verify_test3(){
+        String customerOrderDate1 = WebTableUtils.returnOrderDate(driver, "Alexandra Gray");
+        System.out.println(customerOrderDate1);
+
+    }
+    @Test
+    public void order_name_verify_test4(){
+
+        WebTableUtils.orderVerify(driver,"Bart Fisher", "01/16/2021"); }
+        @AfterMethod
+
+
+
 
     public void endMethod () {
-        driver.quit();
+        driver.close();
     }
 
 
