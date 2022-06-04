@@ -1,4 +1,4 @@
-package com.cydeo.tests.day09.javafaker_testbase_driverutils;
+package com.cydeo.tests.day09;
 
 import com.github.javafaker.Faker;
 import org.testng.annotations.Test;
