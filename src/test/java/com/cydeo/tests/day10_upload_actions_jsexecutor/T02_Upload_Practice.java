@@ -24,7 +24,7 @@ public class T02_Upload_Practice {
         //        3. Upload the file.
         Driver.getDriver().findElement(By.id("file-submit")).click();
         //        4. Assert:
-        Assert.assertTrue(Driver.getDriver().findElement(By.xpath("//*[@id=\"content\"]/div/h3")).isDisplayed());
+        Assert.assertTrue(Driver.getDriver().findElement(By.tagName("h3")).isDisplayed());
         //        -File uploaded text is displayed on the page
 
 
