@@ -13,9 +13,11 @@ public class Singleton {
 
     public static String getWord() {
         if (word == null){
-            System.out.println("First time call. Word object is null. " + "Assigning valu to it now!");}else {
+            System.out.println("First time call. Word object is null. " + "Assigning valu to it now!");
+            word = "something";
+        }
+        else {
             System.out.println(" Word has already a value.");
-
         }
         return word;
     }

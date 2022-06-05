@@ -34,7 +34,6 @@ switch (browserType){
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         break;}
 
-
         }
         return driver;
     }
