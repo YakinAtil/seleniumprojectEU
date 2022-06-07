@@ -14,25 +14,25 @@ public class LibraryLoginPage {
     //Expected: This field is required.
     //
 
-    public  void publicLibraryLogin(){
+    public   LibraryLoginPage(){
         PageFactory.initElements(Driver.getDriver(), this);
     }
     @FindBy(xpath ="//input[@id='inputEmail']")
 
     public WebElement inputUserName;
 
-    @FindBy(id="Password")
-
+    @FindBy(id = "inputPassword")
     public WebElement inputPassword;
+
 
     @FindBy(xpath = "//button[.='Sign in']")
     public WebElement signInButton;
 
-    @FindBy(xpath = "//div[@class=\"alert alert-danger\"]")
+    @FindBy(xpath = "//div[text()='This field is required.']")
 
     public WebElement fieldRequiredAlertMessage ;
 
-    @FindBy(xpath = "//div[@id=\"inputEmail-error\"]")
+    @FindBy(xpath = "//*[@id=\"inputEmail-error\"]")
 
     public WebElement enterValidEMailMessage;
 
