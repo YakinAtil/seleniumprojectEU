@@ -17,6 +17,26 @@ public class LibraryLoginPage {
     public  void publicLibraryLogin(){
         PageFactory.initElements(Driver.getDriver(), this);
     }
+    @FindBy(xpath ="//input[@id='inputEmail']")
 
     public WebElement inputUserName;
+
+    @FindBy(id="Password")
+
+    public WebElement inputPassword;
+
+    @FindBy(xpath = "//button[.='Sign in']")
+    public WebElement signInButton;
+
+    @FindBy(xpath = "//div[@class=\"alert alert-danger\"]")
+
+    public WebElement fieldRequiredAlertMessage ;
+
+    @FindBy(xpath = "//div[@id=\"inputEmail-error\"]")
+
+    public WebElement enterValidEMailMessage;
+
+    @FindBy(xpath = "//div[.='Sorry, Wrong Email or Password']")
+    public  WebElement wrongMailOrPasswordAlert;
+
 }
