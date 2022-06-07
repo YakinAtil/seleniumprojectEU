@@ -5,7 +5,7 @@ import com.cydeo.utilities.Driver;
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.Test;
 
-public class T06_JavaScriptExecutor {
+public class    T06_JavaScriptExecutor {
 
     @Test
     public void javascript_executor_test01() {

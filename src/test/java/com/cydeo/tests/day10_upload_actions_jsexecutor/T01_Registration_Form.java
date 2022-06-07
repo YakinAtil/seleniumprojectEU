@@ -57,7 +57,7 @@ public class T01_Registration_Form {
         //15. Verify success message “You’ve successfully completed registration.” is
         //displayed.
         String actual= Driver.getDriver().findElement(By.xpath("//*[@id=\"content\"]/div/div/p")).getText();
-        String expected = "You've successfully completed registration!";
+        String expected = " You've successfully completed registration!";
         System.out.println(actual);
         System.out.println(expected);
         Assert.assertEquals(actual,expected);

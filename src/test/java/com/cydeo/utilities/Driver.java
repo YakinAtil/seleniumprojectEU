@@ -47,6 +47,10 @@ switch (browserType){
             driver = null;
         }
     }
-
-
+public static void close() {
+        if(driver != null) {
+            driver.quit();
+            driver = null ;
+        }
+}
 }

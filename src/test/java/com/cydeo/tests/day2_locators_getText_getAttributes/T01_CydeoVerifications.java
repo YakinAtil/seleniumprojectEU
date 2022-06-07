@@ -23,7 +23,7 @@ Expected: cydeo
 
         driver.navigate().to("https://practice.cydeo.com");
 
-        String expectedUrl = "cydeo";
+        String expectedUrl = "com/cydeo";
         String actualUrl = driver.getCurrentUrl();
 
         if( actualUrl.contains(expectedUrl)) {
